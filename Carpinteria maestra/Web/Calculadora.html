@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            width: 100px;
+            padding: 5px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #resultado {
+            width: 150px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <p>Numero 1: <input id="n1" type="number"></p>
+        <p>Numero 2: <input id="n2" type="number"></p>
+        <p>Numero 3: <input id="n3" type="number"></p>
+        <p>Resultado: <input id="resultado" type="number"></p>
+        <button onClick="calcular(1)">Sumar</button>
+        <button onClick="calcular(2)">Restar</button>
+        <button onClick="calcular(3)">Dividir</button>
+        <button onClick="calcular(4)">Multiplicar</button>
+        <button onClick="limpiar()">Limpiar</button>
+    </div>
+    <script>
+        function calcular(tipo) {
+            var n1 = document.getElementById("n1").value;
+            if (!n1) return alert("Ingrese el Numero 1");
+            var n2 = document.getElementById("n2").value;
+            if (!n2) return alert("Ingresa el Numero 2");
+            var n3 = document.getElementById("n3").value;
+            if (!n3) return alert("Ingresa el Numero 3");
+            n1 = parseInt(n1);
+            n2 = parseInt(n2);
+            n3 = parseInt(n3);
+            var resultado;
+            if (tipo == 1) resultado = (n1 + n2) + n3;
+            if (tipo == 2) resultado = (n1 - n2) - n3;
+            if (tipo == 3) resultado = (n1 / n2) / n3;
+            if (tipo == 4) resultado = (n1 * n2) * n3;
+            document.getElementById("resultado").value = resultado;
+        }
+    </script>
+</body>
+
+</html>
